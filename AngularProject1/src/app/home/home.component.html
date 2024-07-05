@@ -1,0 +1,37 @@
+<div class="Back">
+  <div class="wrapper">
+    <form class="p-3 mt-3" [formGroup]="CalcForm" (ngSubmit)="onSubmitCalcForm()">
+      <div class="form-field d-flex align-items-center">
+        <span class="far fa-user"></span>
+        <input type="number" formControlName="ValorInicial" id="ValorInicial" min="1" oninput="this.value =!!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : null" placeholder="Informe o Valor Inicial">
+      </div>
+      <div class="form-field d-flex align-items-center">
+        <span class="fas fa-key"></span>
+        <input type="number" name="Prazo" formControlName="Prazo" id="Prazo" min="2" oninput="this.value =!!this.value && Math.abs(this.value) >= 2 ? Math.abs(this.value) : null" placeholder="Informe o Prazo">
+      </div>
+      <button type="submit" class="btn mt-3" [disabled]="!this.CalcForm.valid">Login</button>
+
+    </form>
+    <br />
+    <br />
+    <br />
+    <div class="form-field d-flex align-items-center" *ngIf="CalcCard">
+      <h1>Resposta do calculo</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Valor Bruto</th>
+            <th scope="col">Valor Líquido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ValorBruto}}</td>
+            <td>{{ValorLiquido}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
