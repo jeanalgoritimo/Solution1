@@ -1,39 +1,36 @@
-﻿using WebApCalc.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.Remoting.Messaging;
-using System.Web;
-using WebApCalc.Interface;
+using System.Text;
+using WebApi.Calculo.Aplication.Interfaces;
+using WebApi.Calculo.Aplication.Responses;
 
-namespace WebApCalc.Services
+namespace WebApi.Calculo.Aplication.Services
 {
-    public class Calcular  : ICalcular
+    public class CalcularService : ICalcularService
     {
-        public Calculo CalcularValores(string valorInicial, string meses)
+        public CalculosResponses CalcularValores(string valorInicial, string prazo)
         {
-             
-            Calculo calculo = new Calculo();
 
-            if ((!string.IsNullOrEmpty(valorInicial) && !string.IsNullOrEmpty(meses)))
+            CalculosResponses calculo = new CalculosResponses();
+
+            if ((!string.IsNullOrEmpty(valorInicial) && !string.IsNullOrEmpty(prazo)))
             {
-                calculo.ValorBruto = CalculoValorFinal(valorInicial, meses);
+                calculo.ValorBruto = CalculoValorFinal(valorInicial, prazo);
                 calculo.ValorLiquido = CalculoValorLiquido(valorInicial, calculo.ValorBruto);
-                 
+
             }
             else
             {
-                calculo = new Calculo();
+                calculo = new CalculosResponses();
             }
-         
+
             return calculo;
         }
-        private double CalculoValorFinal(string valorInicial, string meses)
+        private double CalculoValorFinal(string valorInicial, string prazo)
         {
             double meuValor = 0;
             meuValor = Math.Round(Convert.ToDouble(valorInicial), 2);
-            var porcentagem = impostoTable(meses);
+            var porcentagem = impostoTable(prazo);
             var TBI_CDI = 1.08 * 0.009;
             var TBI_CDI_Imposto = porcentagem + TBI_CDI;
             var ImpostoFinal = meuValor * TBI_CDI_Imposto;
@@ -69,7 +66,7 @@ namespace WebApCalc.Services
             else if (faixaImpostoInt > 24)
             {
                 imposto = 0.15;
-            } 
+            }
 
             return imposto;
         }

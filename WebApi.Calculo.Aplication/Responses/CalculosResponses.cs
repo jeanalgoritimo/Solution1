@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Text;
 
-namespace WebApCalc.Models
+namespace WebApi.Calculo.Aplication.Responses
 {
-    public class Calculo
+    public class CalculosResponses
     {
         public double ValorBruto { get; set; }
         public double ValorLiquido { get; set; }
-
     }
 }

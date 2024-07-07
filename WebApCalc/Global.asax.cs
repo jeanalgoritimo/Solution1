@@ -19,13 +19,14 @@ namespace WebApCalc
         {
           
             AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(SimpleInjectorConfig.Register);
+           
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);  
-           
-             
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            GlobalConfiguration.Configure(SimpleInjectorConfig.Register);
+
+
         }
         //Added code
         protected void Application_BeginRequest(object sender, EventArgs e)

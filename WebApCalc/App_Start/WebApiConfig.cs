@@ -2,9 +2,7 @@
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Unity.Lifetime;
-using Unity;
-using WebApCalc.Interface;
-using WebApCalc.Services;
+using Unity; 
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using System.Reflection;

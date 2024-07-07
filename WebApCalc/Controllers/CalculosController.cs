@@ -1,7 +1,4 @@
-﻿using WebApCalc.Interface;
-using WebApCalc.Models;
-using WebApCalc.Services;
-using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Cors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,21 +6,23 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using Unity;
+using WebApi.Calculo.Aplication.Interfaces;
+using WebApi.Calculo.Aplication.Requests;
 
-namespace WebApCalc.Controllers
+namespace WebApi.Calculo.Controllers
 {
     [System.Web.Http.Cors.EnableCors(origins: "http://localhost:9646", headers: "*", methods: "*")]
    
-    public class CalculoController : ApiController
+    public class CalculosController : ApiController
     {
-        private readonly ICalcular _calcular;
-        public CalculoController(ICalcular calcular)
+        private readonly ICalcularService _calcular;
+        public CalculosController(ICalcularService calcular)
         {
            this._calcular = calcular;
         }
 
         [DisableCors]
-        public IHttpActionResult Post([FromBody] ParamtrosCalculo paramtrosCalculo)
+        public IHttpActionResult Post([FromBody] Parametros paramtrosCalculo)
         {
             try
             {
@@ -33,7 +32,7 @@ namespace WebApCalc.Controllers
             }
             catch(Exception ex)
             {
-                return BadRequest();
+                return BadRequest("Error in Request");
 
             }
            

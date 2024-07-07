@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Text;
 
-namespace WebApCalc.Models
+namespace WebApi.Calculo.Aplication.Requests
 {
-    public class ParamtrosCalculo
+    public class Parametros
     {
         public string ValorInicial { get; set; }
         public string Prazo { get; set; }

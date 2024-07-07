@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using WebApCalc.Interface;
-using WebApCalc.Services;
+using WebApi.Calculo.Aplication.Interfaces;
+using WebApi.Calculo.Aplication.Services;
 
 namespace ApiTeste.App_Start
 {
@@ -20,7 +20,7 @@ namespace ApiTeste.App_Start
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
 
          
-            container.Register<ICalcular, Calcular>(Lifestyle.Scoped);
+            container.Register<ICalcularService, CalcularService>(Lifestyle.Scoped);
 
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(config);

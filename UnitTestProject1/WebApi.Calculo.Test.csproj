@@ -93,9 +93,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebApCalc\WebApCalc.csproj">
+    <ProjectReference Include="..\WebApCalc\WebApi.Calculo.csproj">
       <Project>{DCF5D29A-A87D-46DE-8E63-2EC28EC14888}</Project>
-      <Name>WebApCalc</Name>
+      <Name>WebApi.Calculo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApi.Calculo.Aplication\WebApi.Calculo.Aplication.csproj">
+      <Project>{B38208E8-0DC2-4400-982A-718350C667DD}</Project>
+      <Name>WebApi.Calculo.Aplication</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
